@@ -62,7 +62,7 @@ class FoodStoreTableViewController: UITableViewController {
         print(foodStoreTel[indexPath.row])
         
         let optionMenu = UIAlertController(title:"전화걸기",message:
-            foodStoreType[indexPath.row], preferredStyle: ActionSheat)
+            foodStoreType[indexPath.row], preferredStyle: .actionSheet)
         
         let cellAction = UIAlertAction(title: "전화를 거시겠습니까?", style: .default) {(action: UIAlertAction)-> Void in
             
@@ -73,7 +73,7 @@ class FoodStoreTableViewController: UITableViewController {
         
         optionMenu.addAction(cellAction)
         optionMenu.addAction(cancelAction)
-        present(optionMenu, animated: true, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+        present(optionMenu, animated: true, completion: nil)
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
