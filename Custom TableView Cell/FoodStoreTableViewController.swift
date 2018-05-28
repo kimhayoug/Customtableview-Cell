@@ -17,6 +17,12 @@ class FoodStoreTableViewController: UITableViewController {
     var foodStoreType = ["중국식당", "분식점", "중국식당", "도시락", "돼지국밥집", "중국식당"]
     var foodStoreTel = ["010-0000-0000","010-0000-0000","010-0000-0000","010-0000-0000","010-0000-0000","010-0000-0000"]
 
+    @IBAction func edit(_ sender: Any) {
+        tableView.isEditing = true
+    }
+    @IBAction func done(_ sender: Any) {
+        tableView.isEditing = false
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -74,40 +80,53 @@ class FoodStoreTableViewController: UITableViewController {
         optionMenu.addAction(cellAction)
         optionMenu.addAction(cancelAction)
         present(optionMenu, animated: true, completion: nil)
-    /*
+    
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
-        return true
+        return false
     }
-    */
+    
 
-    /*
+    
     // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+       override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             // Delete the row from the data source
+            
+        foodStoreNames.remove(at: indexPath.row)
+            foodStoreLocation.remove(at:indexPath.row)
+            foodStoreTel.remove(at: indexPath.row)
+            foodStoreType.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    */
+    
 
-    /*
+    
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    let tmp1 = foodStoreNames[to.row]
+        foodStoreNames[to.row] = foodStoreNames[fromIndexPath.row]
+        foodStoreNames[fromIndexPath.row] = tmp1
+    let tmp2 = foodStoreNames[to.row]
+        foodStoreNames[to.row] = foodStoreNames[fromIndexPath.row]
+        foodStoreNames[fromIndexPath.row] = tmp2
+        
+    tableView.reloadData()
+        
     }
-    */
+    
 
-    /*
+    
     // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-    */
+    
 
     /*
     // MARK: - Navigation

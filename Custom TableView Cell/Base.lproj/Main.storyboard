@@ -22,7 +22,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="g2E-46-TAY" id="1UG-Dy-Cg3">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="VeV-DA-GyY">
@@ -81,7 +81,18 @@
                             <outlet property="delegate" destination="4v7-NM-hQw" id="dWW-c5-NcN"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Dcs-q0-Hyr"/>
+                    <navigationItem key="navigationItem" id="Dcs-q0-Hyr">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="Qzy-J5-XgC">
+                            <connections>
+                                <action selector="edit:" destination="4v7-NM-hQw" id="8Ft-6N-VbS"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="V8E-Ki-Q9z">
+                            <connections>
+                                <action selector="done:" destination="4v7-NM-hQw" id="uhW-dJ-zzB"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ee-Cp-xvM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
