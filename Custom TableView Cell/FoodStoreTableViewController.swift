@@ -17,12 +17,8 @@ class FoodStoreTableViewController: UITableViewController {
     var foodStoreType = ["중국식당", "분식점", "중국식당", "도시락", "돼지국밥집", "중국식당"]
     var foodStoreTel = ["010-0000-0000","010-0000-0000","010-0000-0000","010-0000-0000","010-0000-0000","010-0000-0000"]
 
-    @IBAction func edit(_ sender: Any) {
-        tableView.isEditing = true
-    }
-    @IBAction func done(_ sender: Any) {
-        tableView.isEditing = false
-    }
+    
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -66,7 +62,8 @@ class FoodStoreTableViewController: UITableViewController {
         print(indexPath.row)
         print(foodStoreNames[indexPath.row])
         print(foodStoreTel[indexPath.row])
-        
+    }
+       /*
         let optionMenu = UIAlertController(title:"전화걸기",message:
             foodStoreType[indexPath.row], preferredStyle: .actionSheet)
         
@@ -80,15 +77,18 @@ class FoodStoreTableViewController: UITableViewController {
         optionMenu.addAction(cellAction)
         optionMenu.addAction(cancelAction)
         present(optionMenu, animated: true, completion: nil)
-    
+        
+    }
+    */
+    /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the specified item to be editable.
         return false
     }
     
-
-    
+*/
+   /*
     // Override to support editing the table view.
        override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
@@ -103,9 +103,9 @@ class FoodStoreTableViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }    
     }
-    
+    */
 
-    
+    /*
     // Override to support rearranging the table view.
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
     let tmp1 = foodStoreNames[to.row]
@@ -119,24 +119,32 @@ class FoodStoreTableViewController: UITableViewController {
         
     }
     
-
-    
+*/
+    /*
     // Override to support conditional rearranging of the table view.
         func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
     
-
-    /*
+*/
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "show"{
+            if let indexPath = tableView.indexPathForSelectedRow{
+                let destinationController = segue.destination as! UIDarieviewConter
+                destinationController.title = foodStoreNames[indexPath.row]
+                
+                destinationController.cellImage = foodStoreImages[indexPath.row]
+            }
+            }
+        }
     }
-    */
+    
 
-}
-}
+
